@@ -5,6 +5,8 @@ import { ReportsModule } from './reports/reports.module';
 import { AuthModule } from './auth/auth.module';
 import { Report } from './reports/entities/report.entity';
 import { User } from './auth/entities/user.entity';
+import { StorageService } from './storage/storage.service';
+import { StorageModule } from './storage/storage.module';
 
 @Module({
   imports: [
@@ -24,6 +26,8 @@ import { User } from './auth/entities/user.entity';
     }),
     ReportsModule,
     AuthModule,
+    StorageModule,
   ],
+  providers: [StorageService],
 })
 export class AppModule {}

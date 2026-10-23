@@ -4,7 +4,7 @@ import {
   Entity,
   PrimaryGeneratedColumn,
 } from 'typeorm';
-
+ 
 @Entity('WATER_REPORT')
 export class Report {
   @PrimaryGeneratedColumn()
@@ -12,23 +12,35 @@ export class Report {
 
   @Column()
   address: string;
-
+ 
   @Column()
   description: string;
-
+ 
   @Column()
   severity: string;
-
+ 
   @Column()
   reporterPhone: string;
-
+ 
   @Column({
     default: false,
-  })
-  isResolved: boolean;
 
+  })
+
+  isResolved: boolean;
+ 
+  @Column()
+  photoUrl: string;
+ 
+  @Column({
+    type: 'varchar',
+    nullable: true,
+  })
+
+  repairPhotoUrl: string | null;
   @CreateDateColumn({
-    type: 'timestamp',
+    type: 'timestamp'
   })
   createdAt: Date;
 }
+ 
