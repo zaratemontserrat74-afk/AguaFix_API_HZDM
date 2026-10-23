@@ -33,9 +33,10 @@ export class StorageService {
           ContentType: file.mimetype,
         }),
       );
-    } catch (error) {
+       } catch (error) {
+      console.error('Error al subir a S3:', error);
       throw new InternalServerErrorException(
-        'No se pudo subir el archivo a S3',
+        `No se pudo subir el archivo a S3: ${(error as Error).name}`,
       );
     }
     return `https://${envs.awsBucketName}.s3.${envs.awsRegion}.amazonaws.com/${key}`;
